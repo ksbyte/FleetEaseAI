@@ -35,6 +35,20 @@ public class DashboardTest extends BaseTest {
         String rideEndCount = dashboardPage.getRideEndCount();
         System.out.println("Total rideEnd: " + rideEndCount);
 
+//        Ride metrices today
+        String onRideMetToday = dashboardPage.getOnRideMetricesToday();
+        System.out.println("Total onRideToday: " +onRideMetToday);
+
+        String RideEndReqTday = dashboardPage.getRideEndReqToday();
+        System.out.println("Total RideEndToday: " +RideEndReqTday);
+
+        String RECompToday = dashboardPage.getRECompToday();
+        System.out.println("Total RideEndCompToday: " +RECompToday);
+
+        String motLockToday = dashboardPage.getMotorLockToday();
+        System.out.println("Total MotorLockToday: " +motLockToday);
+
+
         Assert.assertTrue(dashboardPage.isDashboardLoaded());
         Assert.assertFalse(totalFleet.isEmpty());
         Assert.assertTrue(totalFleet.matches("\\d+"));
