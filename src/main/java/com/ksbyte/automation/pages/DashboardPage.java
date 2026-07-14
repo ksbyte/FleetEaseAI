@@ -90,10 +90,10 @@ public class DashboardPage {
         return driver.findElement(motorLockToday).getText();
     }
 
-    public void clickLiveTracking() {
+    public void clickLiveTrackingMenu() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(liveTrackingMenu));
-        driver.findElement(liveTrackingMenu).click();
+        wait.until(ExpectedConditions.elementToBeClickable(liveTrackingMenu)).click();
+//        driver.findElement(liveTrackingMenu).click();
     }
 
 }

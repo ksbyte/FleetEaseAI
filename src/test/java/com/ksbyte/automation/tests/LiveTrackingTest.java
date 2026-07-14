@@ -21,10 +21,11 @@ public class LiveTrackingTest extends BaseTest {
         loginPage.clickLogin();
 
         DashboardPage dashboardPage = new DashboardPage(driver);
-        dashboardPage.clickLiveTracking();
+        Assert.assertTrue(dashboardPage.isDashboardLoaded());
+
+        dashboardPage.clickLiveTrackingMenu();
 
         LiveTrackingPage liveTrackingPage = new LiveTrackingPage(driver);
-
         Assert.assertTrue(liveTrackingPage.isLiveTrackingLoaded());
     }
 
