@@ -27,6 +27,13 @@ public class LiveTrackingTest extends BaseTest {
 
         LiveTrackingPage liveTrackingPage = new LiveTrackingPage(driver);
         Assert.assertTrue(liveTrackingPage.isLiveTrackingLoaded());
+
+        System.out.println("On Ride: " + liveTrackingPage.getOnRideCount());
+        System.out.println("Idle: " + liveTrackingPage.getidleCount());
+        System.out.println("Disconnected: " + liveTrackingPage.getdisconnectedCount());
+
+        liveTrackingPage.clickFirstVehicle();
+        System.out.println("Vehicle location: " + liveTrackingPage.getVehicleLocation());
     }
 
 }
