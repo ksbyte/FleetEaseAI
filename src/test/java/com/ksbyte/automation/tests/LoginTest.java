@@ -1,6 +1,6 @@
 package com.ksbyte.automation.tests;
 
-import com.ksbyte.automation.base.BaseTest;
+import com.ksbyte.automation.tests.base.BaseTest;
 import com.ksbyte.automation.pages.LoginPage;
 import com.ksbyte.automation.utils.ConfigReader;
 import org.openqa.selenium.Keys;

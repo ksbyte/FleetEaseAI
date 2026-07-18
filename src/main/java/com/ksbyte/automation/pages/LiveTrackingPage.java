@@ -31,7 +31,7 @@ public class LiveTrackingPage {
     By onRideCount = By.xpath("//span[contains(text(),'On Ride')]/preceding-sibling::span");
     By idleCount = By.xpath("//span[contains(text(),'Idle')]/preceding-sibling::span");
     By disconnectedCount = By.xpath("//span[contains(text(),'Disconnected')]/preceding-sibling::span");
-    By firstVehicle = By.xpath("//span[contains(text(),'LAMBORGHINI10')]");
+    By firstVehicle = By.xpath("//span[contains(text(),'WARS98901')]");
     By vehicleLocation = By.xpath("//a[contains(@href,'maps?q=')]/preceding-sibling::p[1]");
 
     public String getOnRideCount() {

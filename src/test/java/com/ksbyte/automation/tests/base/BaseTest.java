@@ -1,4 +1,4 @@
-package com.ksbyte.automation.base;
+package com.ksbyte.automation.tests.base;
 
 import com.ksbyte.automation.drivers.DriverFactory;
 import org.openqa.selenium.WebDriver;
