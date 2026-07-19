@@ -21,6 +21,7 @@ public class LiveTrackingPage {
 
     By liveTrackingMenu = By.xpath("//span[contains(text(),'Live Tracking')]");
     By liveTrackingHeading = By.xpath("//h1[contains(text(),'Live Tracking')]");
+//    By fleetPageMenu = By.xpath("//span[contains(text(),'Fleet')]");
 
     public boolean isLiveTrackingLoaded() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -62,4 +63,10 @@ public class LiveTrackingPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(vehicleLocation));
         return driver.findElement(vehicleLocation).getText();
     }
+
+//    public void clickFleetMenu() {
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        wait.until(ExpectedConditions.elementToBeClickable(fleetPageMenu)).click();
+////        driver.findElement(fleetPageMenu).click();
+//    }
 }

@@ -35,6 +35,7 @@ public class DashboardPage {
     By endRideCompToday = By.xpath("/html/body/div[2]/main/div/div[1]/div[2]/div/div[3]/div/div[2]/p[1]");
     By motorLockToday = By.xpath("/html/body/div[2]/main/div/div[1]/div[2]/div/div[4]/div/div[2]/p[1]");
     By liveTrackingMenu = By.xpath("//span[contains(text(),'Live Tracking')]");
+    By fleetPageMenu = By.xpath("//span[contains(text(),'Fleet')]");
 
 
     public boolean isDashboardLoaded() {
@@ -94,6 +95,12 @@ public class DashboardPage {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(liveTrackingMenu)).click();
 //        driver.findElement(liveTrackingMenu).click();
+    }
+
+    public void clickFleetMenu() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(fleetPageMenu)).click();
+//        driver.findElement(fleetPageMenu).click();
     }
 
 }
