@@ -15,6 +15,10 @@ public class FleetPage {
 
     By fleetHeading = By.xpath("//h1[contains(text(),'Fleet Management')]");
     By searchBox = By.xpath("//input[contains(@placeholder,'Search')]");
+    By addFleetBtn = By.xpath("//button[contains(text(), '+ Add Fleet')]");
+    By rgtNum = By.xpath("//input[@id = 'registrationNumber']");
+    By fleetTypeDropdown = By.xpath("//select[@id='fleetType']");
+    By bullacartOption = By.xpath("//select[@id='fleetType']/option[@value='58']");
 
     public boolean isFleetPageLoaded(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -29,4 +33,16 @@ public class FleetPage {
         search.clear();
         search.sendKeys(fleetName);
     }
+
+    public void addNewFleet(String regNo){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(addFleetBtn)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(rgtNum)).sendKeys(regNo);
+        wait.until(ExpectedConditions.elementToBeClickable(fleetTypeDropdown)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(bullacartOption)).click();
+
+    }
+
+
 }
