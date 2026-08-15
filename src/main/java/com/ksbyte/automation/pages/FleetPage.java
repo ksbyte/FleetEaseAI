@@ -1,6 +1,7 @@
 package com.ksbyte.automation.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -19,6 +20,10 @@ public class FleetPage {
     By rgtNum = By.xpath("//input[@id = 'registrationNumber']");
     By fleetTypeDropdown = By.xpath("//select[@id='fleetType']");
     By bullacartOption = By.xpath("//select[@id='fleetType']/option[@value='58']");
+    By selectCity = By.xpath("//select[@id='city']/option[@value='GURGAON']");
+    By selectHub = By.xpath("//select[@id='hub']/option[@value='Vintage']");
+    By chassisNo = By.xpath("//input[@placeholder='Enter Chassis No.']");
+
 
     public boolean isFleetPageLoaded(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -34,14 +39,20 @@ public class FleetPage {
         search.sendKeys(fleetName);
     }
 
-    public void addNewFleet(String regNo){
+    public void addNewFleet(String regNo, String chasNum){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(addFleetBtn)).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(rgtNum)).sendKeys(regNo);
         wait.until(ExpectedConditions.elementToBeClickable(fleetTypeDropdown)).click();
         wait.until(ExpectedConditions.elementToBeClickable(bullacartOption)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectCity)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(selectHub)).click();
 
+        WebElement chassis = wait.until(ExpectedConditions.visibilityOfElementLocated(chassisNo));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView({block: 'center'});", chassis);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(chassisNo)).sendKeys(chasNum);
     }
 
 
