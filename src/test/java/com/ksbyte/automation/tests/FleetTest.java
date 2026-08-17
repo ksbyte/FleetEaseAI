@@ -35,7 +35,7 @@ public class FleetTest extends BaseTest {
         Assert.assertTrue(fleetPage.isFleetPageLoaded());
 
         fleetPage.searchFleet("DL01AB8993");
-        fleetPage.addNewFleet("DL01AB8992", "CHS0283982001");
+        fleetPage.addNewFleet("DL01AB8192", "CHS0283982001", "761676767621344");
         Thread.sleep(2000);
     }
 

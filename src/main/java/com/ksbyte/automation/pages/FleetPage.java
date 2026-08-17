@@ -23,6 +23,8 @@ public class FleetPage {
     By selectCity = By.xpath("//select[@id='city']/option[@value='GURGAON']");
     By selectHub = By.xpath("//select[@id='hub']/option[@value='Vintage']");
     By chassisNo = By.xpath("//input[@placeholder='Enter Chassis No.']");
+    By imei = By.xpath("//input[@placeholder='Search IMEI...']");
+    By saveBtn = By.xpath("//button[contains(text(),'Save Fleet')]");
 
 
     public boolean isFleetPageLoaded(){
@@ -39,7 +41,7 @@ public class FleetPage {
         search.sendKeys(fleetName);
     }
 
-    public void addNewFleet(String regNo, String chasNum){
+    public void addNewFleet(String regNo, String chasNum, String imeiNo){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(addFleetBtn)).click();
@@ -53,6 +55,9 @@ public class FleetPage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", chassis);
         wait.until(ExpectedConditions.visibilityOfElementLocated(chassisNo)).sendKeys(chasNum);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(imei)).sendKeys(imeiNo);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(saveBtn)).click();
+        System.out.println("Save Fleet clicked");
     }
 
 
