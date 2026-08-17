@@ -25,6 +25,7 @@ public class FleetPage {
     By chassisNo = By.xpath("//input[@placeholder='Enter Chassis No.']");
     By imei = By.xpath("//input[@placeholder='Search IMEI...']");
     By saveBtn = By.xpath("//button[contains(text(),'Save Fleet')]");
+    By duplicateVehicleMsg = By.xpath("//p[contains(text(),'Vehicle with given number is already present')]");
 
 
     public boolean isFleetPageLoaded(){
@@ -57,7 +58,13 @@ public class FleetPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(chassisNo)).sendKeys(chasNum);
         wait.until(ExpectedConditions.visibilityOfElementLocated(imei)).sendKeys(imeiNo);
         wait.until(ExpectedConditions.visibilityOfElementLocated(saveBtn)).click();
-        System.out.println("Save Fleet clicked");
+    }
+
+    public String getDuplicateVehicleMsg(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement msg = wait.until(ExpectedConditions.visibilityOfElementLocated(duplicateVehicleMsg));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block:'center'});", msg);
+        return msg.getText();
     }
 
 

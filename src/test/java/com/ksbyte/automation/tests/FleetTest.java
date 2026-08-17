@@ -37,6 +37,10 @@ public class FleetTest extends BaseTest {
         fleetPage.searchFleet("DL01AB8993");
         fleetPage.addNewFleet("DL01AB8192", "CHS0283982001", "761676767621344");
         Thread.sleep(2000);
+
+        String message = fleetPage.getDuplicateVehicleMsg();
+        System.out.println("Validation Message: " + message);
+        Assert.assertEquals(message, "Vehicle with given number is already present");
     }
 
 }
