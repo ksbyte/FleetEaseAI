@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.WebElement;
 
+import java.io.File;
 import java.time.Duration;
 
 public class FleetPage {
@@ -26,7 +27,8 @@ public class FleetPage {
     By imei = By.xpath("//input[@placeholder='Search IMEI...']");
     By saveBtn = By.xpath("//button[contains(text(),'Save Fleet')]");
     By duplicateVehicleMsg = By.xpath("//p[contains(text(),'Vehicle with given number is already present')]");
-
+    By uploadRc = By.xpath("//label[.//p[contains(text(),'Click to upload RC')]]//input[@type='file']");
+    By uploadIns = By.xpath("//label[.//p[contains(text(),'Click to upload Policy')]]//input[@type='file']");
 
     public boolean isFleetPageLoaded(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -57,6 +59,11 @@ public class FleetPage {
         js.executeScript("arguments[0].scrollIntoView({block: 'center'});", chassis);
         wait.until(ExpectedConditions.visibilityOfElementLocated(chassisNo)).sendKeys(chasNum);
         wait.until(ExpectedConditions.visibilityOfElementLocated(imei)).sendKeys(imeiNo);
+        String rcPth =  new File(getClass().getClassLoader().getResource("testdata/dummy-rc.jpg").getFile()).getAbsolutePath();
+        wait.until(ExpectedConditions.presenceOfElementLocated(uploadRc)).sendKeys(rcPth);
+        String insPth =  new File(getClass().getClassLoader().getResource("testdata/insurance-dummy.jpg").getFile()).getAbsolutePath();
+        wait.until(ExpectedConditions.presenceOfElementLocated(uploadIns)).sendKeys(insPth);
+
         wait.until(ExpectedConditions.visibilityOfElementLocated(saveBtn)).click();
     }
 

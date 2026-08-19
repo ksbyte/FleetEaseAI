@@ -35,7 +35,7 @@ public class FleetTest extends BaseTest {
         Assert.assertTrue(fleetPage.isFleetPageLoaded());
 
         fleetPage.searchFleet("DL01AB8993");
-        fleetPage.addNewFleet("DL01AB8192", "CHS0283982001", "761676767621344");
+        fleetPage.addNewFleet("DL-01 AB 8192", "CHS0283989021", "455678987655678");
         Thread.sleep(2000);
 
         String message = fleetPage.getDuplicateVehicleMsg();
